@@ -1,5 +1,7 @@
 ﻿using SoundScribe;
 using SoundScribe.Models;
+using System;
+using System.IO;
 
 namespace SoundScribe
 {
@@ -18,10 +20,11 @@ namespace SoundScribe
                 return database;
             }
         }
+
         public App()
         {
-            MainPage = new Shell { CurrentItem = new MainPage() };
-            //MainPage = new Shell { CurrentItem = new FriendsListPage() };
+            InitializeComponent();
+            MainPage = new Flyuot2();
         }
     }
 }

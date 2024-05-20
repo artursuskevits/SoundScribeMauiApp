@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SoundScribe.Add_track"
+             Title="Add_track">
+    <StackLayout>
+        <Label Text="Artist" />
+        <Entry Text="{Binding Artist}" />
+        <Label Text="Song Name" />
+        <Entry Text="{Binding  Song_Name}" />
+        <Label Text="Rhymes" />
+        <Entry Text="{Binding Rhymes}" />
+        <Label Text="Structure" />
+        <Entry Text="{Binding Structure}" />
+        <Label Text="Style realization " />
+        <Entry Text="{Binding Style_realization }" />
+        <Label Text="Individuality " />
+        <Entry Text="{Binding Individuality }" />
+        <Label Text="Atmosphere" />
+        <Entry Text="{Binding Atmosphere}" />
+        <Label Text="Trendiness" />
+        <Entry Text="{Binding Trendiness}" />
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Coхранить" Clicked="SaveFriend" />
+            <Button Text="Удалить" Clicked="DeleteFriend" />
+            <Button Text="Отмена" Clicked="Cancel" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

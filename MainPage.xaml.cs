@@ -64,7 +64,7 @@ public partial class MainPage : ContentPage
         maincontent = new HorizontalStackLayout
         {
             BackgroundColor = Color.FromRgb(160, 160, 160),
-            Children = {burgermenu}
+            //Children = {burgermenu}
         };
         Content = grid;
     }
