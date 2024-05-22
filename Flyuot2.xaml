@@ -16,7 +16,7 @@
     <FlyoutPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <ContentPage Title="Home">
+                <ContentPage Title="Home" BackgroundImageSource="church_1.png">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -28,16 +28,21 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="#A0A0A0" Orientation="Horizontal">
-                            <Entry x:Name="song_search" Text="Found Song" />
-                        </StackLayout>
-
-                        <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="#000000">
-                           
-                        </StackLayout>
-
-                        <StackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="#000000">
+                        <Frame CornerRadius="30" BorderColor="#525050" Padding="10" Grid.Row="0" Grid.Column="0" HeightRequest="50" BackgroundColor="#525050">
+                            <StackLayout BackgroundColor="#3A3A3A" Orientation="Horizontal" Opacity="0.56">
+                                <Frame CornerRadius="60" BorderColor="#525050">
+                                    <Image Source="search.png" Aspect="AspectFit" HeightRequest="35"/>
+                                    <Entry x:Name="song_search" Text="Found Song" Opacity="1"/>
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
                             
+                        <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="#2B2B2B" Margin="20" Opacity="0.56">
+                            <Label x:Name="lbl_leaderboard" Text="LeaderBoard" FontSize="26" TextColor="#FFFFFF" Opacity="1" Margin="10"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="#2B2B2B" Margin="20" Opacity="0.56">
+                            <Label x:Name="lbl_tracklist" Text="TrackList" FontSize="26" TextColor="#FFFFFF" Opacity="1" Margin="10"/>
                         </StackLayout>
                     </Grid>
                 </ContentPage>
