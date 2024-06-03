@@ -1,4 +1,5 @@
 ﻿    using SoundScribe;
+using SQLite;
     using SoundScribe.Models;
 using SoundScribe.Views;
 using System;
@@ -22,7 +23,11 @@ using System;
                 }
             }
 
-            public App()
+       
+
+     
+
+        public App()
             {
             MainPage = new Flyuot2();
         }

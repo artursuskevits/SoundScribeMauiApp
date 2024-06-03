@@ -20,7 +20,7 @@ public partial class Tracklist : ContentPage
         if (e.SelectedItem != null)
         {
             Songs selectedSong = (Songs)e.SelectedItem;
-            Add_track NewTrackPage = new Add_track
+            RatePage NewTrackPage = new RatePage
             {
                 BindingContext = selectedSong
             };

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SoundScribe.ViewModels"
+             x:Class="SoundScribe.Views.RatePage"
+             Title="RatePage">
+    <ContentPage.BindingContext>
+        <local:RatePageViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout HorizontalOptions="CenterAndExpand">
+        <Image Source="{Binding Image}" WidthRequest="200" HeightRequest="200"/>
+        <Label Text="{Binding Artist}" />
+        <Label Text="{Binding Song_Name}" />
+
+        <Label Text="Rhymes" />
+        <HorizontalStackLayout>
+            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Rhymes, Mode=TwoWay}" />
+            <Label Text="{Binding Rhymes}" />
+        </HorizontalStackLayout>
+
+        <Label Text="Structure" />
+        <HorizontalStackLayout>
+            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Structure, Mode=TwoWay}" />
+            <Label Text="{Binding Structure}" />
+        </HorizontalStackLayout>
+
+        <Label Text="Style realization" />
+        <HorizontalStackLayout>
+            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Style_realization, Mode=TwoWay}" />
+            <Label Text="{Binding Style_realization}" />
+        </HorizontalStackLayout>
+
+        <Label Text="Individuality" />
+        <HorizontalStackLayout>
+            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Individuality, Mode=TwoWay}" />
+            <Label Text="{Binding Individuality}" />
+        </HorizontalStackLayout>
+
+        <Label Text="Atmosphere" />
+        <HorizontalStackLayout>
+            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="5" HorizontalOptions="FillAndExpand" Value="{Binding Atmosphere, Mode=TwoWay}" />
+            <Label Text="{Binding Atmosphere}" />
+        </HorizontalStackLayout>
+
+        <Label Text="Trendiness" />
+        <HorizontalStackLayout>
+            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="5" HorizontalOptions="FillAndExpand" Value="{Binding Trendiness, Mode=TwoWay}" />
+            <Label Text="{Binding Trendiness}" />
+        </HorizontalStackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Coхранить" Clicked="Button_Clicked" />
+            <Button Text="Отмена" Clicked="Cancel" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

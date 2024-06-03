@@ -64,5 +64,32 @@ namespace SoundScribe.Models
                 return database.Insert(item);
             }
         }
+        public List<SongWithComputedValue> GetSortedSongs()
+        {
+            var query = @"
+        SELECT *,
+               (Rhymes + Structure + Style_realization + Individuality) AS a,
+               ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality)) AS b,
+               ((Trendiness * 10.0 / 100.0) + ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality))) AS c
+        FROM Songs
+        ORDER BY c DESC";
+
+            var result = database.Query<Songs>(query);
+
+            return result.Select(song => new SongWithComputedValue
+            {
+                Id = song.Id,
+                Artist = song.Artist,
+                Song_Name = song.Song_Name,
+                Image = song.Image,
+                Rhymes = song.Rhymes,
+                Structure = song.Structure,
+                Style_realization = song.Style_realization,
+                Individuality = song.Individuality,
+                Atmosphere = song.Atmosphere,
+                Trendiness = song.Trendiness,
+                C = ((song.Trendiness * 10.0 / 100.0) + ((song.Atmosphere * 10.0 / 100.0) + (song.Rhymes + song.Structure + song.Style_realization + song.Individuality)))
+            }).ToList();
+        }
     }
 }

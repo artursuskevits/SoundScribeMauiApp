@@ -4,16 +4,17 @@
              x:Class="SoundScribe.Views.Leaderboard"
              Title="Leaderboard">
     <StackLayout>
-        <ListView x:Name="SongList" ItemsSource="{Binding}" ItemSelected="OnItemSelected">
+        <ListView ItemsSource="{Binding Songs}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Artist}" FontSize="Medium" />
-                                <Label Text="{Binding Song_Name }" FontSize="Medium" />
-                            </StackLayout>
-                        </ViewCell.View>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}"></Image>
+                            <Label Text="{Binding Artist}" />
+                            <Label Text=" " />
+                            <Label Text="{Binding Song_Name}" />
+                            <Label Text="{Binding C}" />
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
