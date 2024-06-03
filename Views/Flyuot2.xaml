@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SoundScribe.Flyuot2"
+             x:Class="SoundScribe.Views.Flyuot2"
              Title="Flyuot2">
     <FlyoutPage.Flyout>
         <ContentPage Title="Menu">
             <StackLayout>
+                <Button Text="Man Page" Clicked="Button_Clicked" />
                 <Button Text="Leaderboard" Clicked="OnPage1Clicked" />
                 <Button Text="Tracklist" Clicked="OnPage2Clicked" />
                 <Button Text="Add Track" Clicked="OnPage3Clicked" />

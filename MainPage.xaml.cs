@@ -1,4 +1,5 @@
-﻿using SoundScribe.Models;
+﻿using SoundScribe.Views;
+using SoundScribe.Models;
 namespace SoundScribe;
 
 public partial class MainPage : ContentPage

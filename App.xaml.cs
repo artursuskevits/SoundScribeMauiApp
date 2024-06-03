@@ -1,30 +1,30 @@
-﻿using SoundScribe;
-using SoundScribe.Models;
+﻿    using SoundScribe;
+    using SoundScribe.Models;
+using SoundScribe.Views;
 using System;
-using System.IO;
+    using System.IO;
 
-namespace SoundScribe
-{
-    public partial class App : Application
+    namespace SoundScribe
     {
-        public const string DATABASE_NAME = "SoundScribe_db";
-        public static SoundScribeReprisitory database;
-        public static SoundScribeReprisitory Database
+        public partial class App : Application
         {
-            get
+            public const string DATABASE_NAME = "SoundScribe_db";
+            public static SoundScribeReprisitory database;
+            public static SoundScribeReprisitory Database
             {
-                if (database == null)
+                get
                 {
-                    database = new SoundScribeReprisitory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DATABASE_NAME));
+                    if (database == null)
+                    {
+                        database = new SoundScribeReprisitory (Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DATABASE_NAME));
+                    }
+                    return database;
                 }
-                return database;
             }
-        }
 
-        public App()
-        {
-            InitializeComponent();
+            public App()
+            {
             MainPage = new Flyuot2();
         }
+        }
     }
-}

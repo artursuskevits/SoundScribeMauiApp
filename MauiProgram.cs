@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-
+using SoundScribe.Views;
 namespace SoundScribe;
 
 public static class MauiProgram

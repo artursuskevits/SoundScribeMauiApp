@@ -1,7 +1,7 @@
 using Microsoft.Maui.Controls;
+using SoundScribe.Models;
+namespace SoundScribe.Views;
 
-namespace SoundScribe
-{
     public partial class Flyuot2 : FlyoutPage
     {
         public Flyuot2()
@@ -9,7 +9,7 @@ namespace SoundScribe
             InitializeComponent();
         }
 
-        private void OnPage1Clicked(object sender, EventArgs e)
+    private void OnPage1Clicked(object sender, EventArgs e)
         {
             Detail = new NavigationPage(new Leaderboard());
             IsPresented = false;
@@ -22,8 +22,14 @@ namespace SoundScribe
         }
         private void OnPage3Clicked(object sender, EventArgs e)
         {
+           
             Detail = new NavigationPage(new Add_track());
             IsPresented = false;
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new Flyuot2());
+            IsPresented = false;
+        }
     }
-}
