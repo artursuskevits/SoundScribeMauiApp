@@ -3,6 +3,7 @@ namespace SoundScribe.Views;
 
 public partial class Add_track : ContentPage
 {
+    string imagePath = null;
     public Add_track()
     {
         InitializeComponent();
@@ -15,6 +16,7 @@ public partial class Add_track : ContentPage
         try
         {
             var photo = await MediaPicker.PickPhotoAsync();
+            imagePath = photo.FullPath;
             ImageSource vlad = ImageSource.FromFile(photo.FullPath);
         }
         catch
@@ -23,8 +25,8 @@ public partial class Add_track : ContentPage
         }
             var song = (Songs)BindingContext;
         if (!String.IsNullOrEmpty(song.Artist))
-            
-            App.Database.SaveItemSongs(song);
+            song.Image = imagePath;
+        App.Database.SaveItemSongs(song);
         this.Navigation.PopAsync();
     }
     private void DeleteFriend(object sender, EventArgs e)

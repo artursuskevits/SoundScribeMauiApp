@@ -16,7 +16,7 @@ namespace SoundScribe.Models
         public string Artist { get; set; }
         [MaxLength(35)]
         public string Song_Name { get; set; }
-        [Ignore]
+        [MaxLength(999)]
         public string Image { get; set; }
         public int Rhymes { get; set; }
         public int Structure { get; set; }
@@ -24,5 +24,6 @@ namespace SoundScribe.Models
         public int Individuality { get; set; }
         public int Atmosphere { get; set; }
         public int Trendiness { get; set; }
+       
     }
 }

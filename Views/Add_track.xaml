@@ -22,6 +22,7 @@
         <Label Text="Trendiness" />
         <Entry Text="{Binding Trendiness}" />
         Cool comment -->
+        
         <StackLayout Orientation="Horizontal">
             <Button Text="Coхранить" Clicked="SaveFriend" />
             <Button Text="Удалить" Clicked="DeleteFriend" />

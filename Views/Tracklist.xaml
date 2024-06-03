@@ -9,10 +9,13 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
+                            <StackLayout Orientation="Vertical">
                             <StackLayout Orientation="Horizontal">
+                                <Image Source = "{Binding Image}" WidthRequest="50" HeightRequest="50" />
                                 <Label Text="{Binding Artist}" FontSize="Medium" />
-                                <Label Text="{Binding Artist}" FontSize="Medium" />
+                                </StackLayout>
                                 <Label Text="{Binding Song_Name }" FontSize="Medium" />
+                                
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>
