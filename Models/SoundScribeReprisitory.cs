@@ -10,12 +10,14 @@ namespace SoundScribe.Models
     public class SoundScribeReprisitory
     {
         SQLiteConnection database;
+
         public SoundScribeReprisitory(string databasePath)
         {
             database = new SQLiteConnection(databasePath);
             database.CreateTable<Songs>();
             database.CreateTable<Users>();
         }
+
         public IEnumerable<Songs> GetItemsSongs()
         {
             return database.Table<Songs>().ToList();

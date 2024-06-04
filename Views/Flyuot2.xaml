@@ -30,39 +30,56 @@
                         </Grid.ColumnDefinitions>
 
                         <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="#A0A0A0" Orientation="Horizontal">
-                            <Entry x:Name="song_search" Text="Found Song" />
+                            <Entry x:Name="song_search" TextChanged="OnSearchTextChanged" />
                         </StackLayout>
 
-                        <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="#000000">
-                            <ListView ItemsSource="{Binding Songs}">
+                        <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="#500000">
+                            <ListView x:Name="SongList" ItemsSource="{Binding Songs}" ItemSelected="OnItemSelected">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
-                                            <Label Text="Best Song:"></Label>
-                                            <StackLayout Orientation="Horizontal">
-                                                <Image Source="{Binding Image}"></Image>
-                                                <Label Text="{Binding Artist}" />
-                                                <Label Text=" " />
-                                                <Label Text="{Binding Song_Name}" />
-                                                <Label Text="{Binding C}" />
-                                            </StackLayout>
+                                            <ViewCell.View>
+                                                <StackLayout Orientation="Vertical">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" />
+                                                        <Label Text="{Binding Artist}" FontSize="Medium" />
+                                                    </StackLayout>
+                                                    <Label Text="{Binding Song_Name}" FontSize="Medium" />
+                                                </StackLayout>
+                                            </ViewCell.View>
                                         </ViewCell>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="#000000">
-                            <ListView ItemsSource="{Binding Last}">
+                        <StackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="#500000">
+                            <ListView ItemsSource="{Binding Last}" ItemSelected="OnItemSelected">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Label Text="Last Song:"></Label>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="{Binding Image}" />
+                                                <Label Text="{Binding Artist}" />
+                                                <Label Text=" " />
+                                                <Label Text="{Binding Song_Name}" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <ListView ItemsSource="{Binding Song}" ItemSelected="OnItemSelected">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
                                             <Label Text="Best Song:"></Label>
                                             <StackLayout Orientation="Horizontal">
-                                                <Image Source="{Binding Image}"></Image>
+                                                <Image Source="{Binding Image}" />
                                                 <Label Text="{Binding Artist}" />
                                                 <Label Text=" " />
                                                 <Label Text="{Binding Song_Name}" />
+                                                <Label Text="{Binding C}" />
                                             </StackLayout>
                                         </ViewCell>
                                     </DataTemplate>
@@ -75,4 +92,3 @@
         </NavigationPage>
     </FlyoutPage.Detail>
 </FlyoutPage>
- 

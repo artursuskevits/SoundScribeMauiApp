@@ -1,5 +1,6 @@
 ﻿    using SoundScribe;
 using SQLite;
+
     using SoundScribe.Models;
 using SoundScribe.Views;
 using System;

@@ -11,7 +11,9 @@
         <Image Source="{Binding Image}" WidthRequest="200" HeightRequest="200"/>
         <Label Text="{Binding Artist}" />
         <Label Text="{Binding Song_Name}" />
-
+        <WebView x:Name="SoundCloudWebView"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand" />
         <Label Text="Rhymes" />
         <HorizontalStackLayout>
             <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Rhymes, Mode=TwoWay}" />
@@ -47,6 +49,8 @@
             <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="5" HorizontalOptions="FillAndExpand" Value="{Binding Trendiness, Mode=TwoWay}" />
             <Label Text="{Binding Trendiness}" />
         </HorizontalStackLayout>
+
+        <Button Text="Play" Clicked="PlayButton_Clicked" />
 
         <StackLayout Orientation="Horizontal">
             <Button Text="Coхранить" Clicked="Button_Clicked" />

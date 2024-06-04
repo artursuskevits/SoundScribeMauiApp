@@ -1,41 +1,95 @@
 using Microsoft.Maui.Controls;
 using SoundScribe.Models;
+using System;
 using System.Collections.ObjectModel;
-namespace SoundScribe.Views;
+using System.Linq;
 
-public partial class Flyuot2 : FlyoutPage
+namespace SoundScribe.Views
 {
-    public ObservableCollection<Songs> Songs { get; set; }
-    public ObservableCollection<Songs> Last { get; set; }
-    public Flyuot2()
+    public partial class Flyuot2 : FlyoutPage
     {
-        Songs = new ObservableCollection<Songs>(App.Database.GetBestSong());
-        Last = new ObservableCollection<Songs>(App.Database.GetLastSong());
-        BindingContext = this;
-        InitializeComponent();
-    }
+        public ObservableCollection<Songs> Songs { get; set; }
+        public ObservableCollection<Songs> Song { get; set; }
+        public ObservableCollection<Songs> Last { get; set; }
+        private SoundScribeReprisitory Database => App.Database;
 
-    private void OnPage1Clicked(object sender, EventArgs e)
-    {
-        Detail = new NavigationPage(new Leaderboard());
-        IsPresented = false;
-    }
+        public Flyuot2()
+        {
+            InitializeComponent();
 
-    private void OnPage2Clicked(object sender, EventArgs e)
-    {
-        Detail = new NavigationPage(new Tracklist());
-        IsPresented = false;
-    }
-    private void OnPage3Clicked(object sender, EventArgs e)
-    {
+            if (Database == null)
+            {
+            }
 
-        Detail = new NavigationPage(new Add_track());
-        IsPresented = false;
-    }
+            Songs = new ObservableCollection<Songs>(Database.GetSortedSongs());
+            Song = new ObservableCollection<Songs>(Database.GetBestSong());
+            Last = new ObservableCollection<Songs>(Database.GetLastSong());
 
-    private void Button_Clicked(object sender, EventArgs e)
-    {
-        Detail = new NavigationPage(new Flyuot2());
-        IsPresented = false;
+            BindingContext = this;
+        }
+
+        private void OnPage1Clicked(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new Leaderboard());
+            IsPresented = false;
+        }
+
+        private void OnPage2Clicked(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new Tracklist());
+            IsPresented = false;
+        }
+
+        private void OnPage3Clicked(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new Add_track());
+            IsPresented = false;
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new Flyuot2());
+            IsPresented = false;
+        }
+
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Database == null)
+            {
+                throw new Exception("Database is not initialized.");
+            }
+
+            string searchText = e.NewTextValue;
+
+            try
+            {
+                var filteredSongs = Database.GetItemsSongs()
+                    .Where(song => song.Song_Name != null && song.Song_Name.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                   song.Artist != null && song.Artist.StartsWith(searchText, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                Songs.Clear();
+                foreach (var song in filteredSongs)
+                {
+                    Songs.Add(song);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred during search: " + ex.Message);
+            }
+        }
+
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            
+                SongWithComputedValue selectedSong = (SongWithComputedValue)e.SelectedItem;
+                RatePage NewTrackPage = new RatePage
+                {
+                    BindingContext = selectedSong
+                };
+                await Navigation.PushAsync(NewTrackPage);
+            
+        }
     }
 }
