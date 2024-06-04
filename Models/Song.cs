@@ -18,6 +18,8 @@ namespace SoundScribe.Models
         public string Song_Name { get; set; }
         [MaxLength(999)]
         public string Image { get; set; }
+        [MaxLength(999)]
+        public string Mp3 { get; set; }
         public int Rhymes { get; set; }
         public int Structure { get; set; }
         public int Style_realization {get; set; }

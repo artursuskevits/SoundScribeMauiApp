@@ -121,9 +121,8 @@ namespace SoundScribe.Models
         }
         public List<SongWithComputedValue> GetLastSong()
         {
-            var query = @"
-        SELECT LAST(Song_Name) 
-FROM Songs;";
+            var query = @"SELECT * FROM Songs
+WHERE _id = (SELECT MAX(_id) FROM Songs)";
 
             var result = database.Query<Songs>(query);
 

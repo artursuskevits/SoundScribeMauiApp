@@ -53,7 +53,21 @@
                         </StackLayout>
 
                         <StackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="#000000">
-                            
+                            <ListView ItemsSource="{Binding Last}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Label Text="Best Song:"></Label>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="{Binding Image}"></Image>
+                                                <Label Text="{Binding Artist}" />
+                                                <Label Text=" " />
+                                                <Label Text="{Binding Song_Name}" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
                         </StackLayout>
                     </Grid>
                 </ContentPage>
