@@ -1,12 +1,18 @@
 using Microsoft.Maui.Controls;
 using SoundScribe.Models;
+using System.Collections.ObjectModel;
 namespace SoundScribe.Views;
 
     public partial class Flyuot2 : FlyoutPage
-    {
-        public Flyuot2()
+{
+    public ObservableCollection<Songs> Songs { get; set; }
+    public ObservableCollection<Songs> Last { get; set; }
+    public Flyuot2()
         {
-            InitializeComponent();
+        Songs = new ObservableCollection<Songs>(App.Database.GetBestSong());
+        Last = new ObservableCollection<Songs>(App.Database.GetBestSong());
+        BindingContext = this;
+        InitializeComponent();
         }
 
     private void OnPage1Clicked(object sender, EventArgs e)

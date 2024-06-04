@@ -6,7 +6,7 @@
     <FlyoutPage.Flyout>
         <ContentPage Title="Menu">
             <StackLayout>
-                <Button Text="Man Page" Clicked="Button_Clicked" />
+                <Button Text="Main Page" Clicked="Button_Clicked" />
                 <Button Text="Leaderboard" Clicked="OnPage1Clicked" />
                 <Button Text="Tracklist" Clicked="OnPage2Clicked" />
                 <Button Text="Add Track" Clicked="OnPage3Clicked" />
@@ -34,7 +34,22 @@
                         </StackLayout>
 
                         <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="#000000">
-                           
+                            <ListView ItemsSource="{Binding Songs}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Label Text="Best Song:"></Label>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="{Binding Image}"></Image>
+                                                <Label Text="{Binding Artist}" />
+                                                <Label Text=" " />
+                                                <Label Text="{Binding Song_Name}" />
+                                                <Label Text="{Binding C}" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
                         </StackLayout>
 
                         <StackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="#000000">
