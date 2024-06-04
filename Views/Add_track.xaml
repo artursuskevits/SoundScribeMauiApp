@@ -8,6 +8,8 @@
         <Entry Text="{Binding Artist}" />
         <Label Text="Song Name" />
         <Entry Text="{Binding  Song_Name}" />
+        <Label Text="Link to the song" />
+        <Entry Text="{Binding  Link}" />
         <!-- 
         <Label Text="Rhymes" />
         <Entry Text="{Binding Rhymes}" />

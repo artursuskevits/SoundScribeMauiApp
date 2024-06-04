@@ -26,25 +26,25 @@ public partial class Add_track : ContentPage
             }
 
 
-            var customFileType = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
-        {
-            { DevicePlatform.Android, new[] { "audio/*" } },
-            { DevicePlatform.WinUI, new[] { ".mp3", ".wav", ".wma" } },
-            { DevicePlatform.MacCatalyst, new[] { "public.audio" } },
-        });
+            //      var customFileType = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+            //       {
+            //{ DevicePlatform.Android, new[] { "audio/*" } },
+            //      { DevicePlatform.WinUI, new[] { ".mp3", ".wav", ".wma" } },
+            //      { DevicePlatform.MacCatalyst, new[] { "public.audio" } },
+            //   });
 
-            var options = new PickOptions
-            {
-                PickerTitle = "Pick a song",
-                FileTypes = customFileType
-            };
+            //   var options = new PickOptions
+            //   {
+            //   PickerTitle = "Pick a song",
+            //    FileTypes = customFileType
+            //};
 
 
-            var songFile = await FilePicker.PickAsync(options);
-            if (songFile != null)
-            {
-                songPath = songFile.FullPath;
-            }
+            //  var songFile = await FilePicker.PickAsync(options);
+            //  if (songFile != null)
+            // {
+            //      songPath = songFile.FullPath;
+            //  }
         }
         catch (Exception ex)
         {
@@ -55,7 +55,7 @@ public partial class Add_track : ContentPage
         if (!String.IsNullOrEmpty(song.Artist))
         {
             song.Image = imagePath;
-            song.Mp3 = songPath;
+          //  song.Mp3 = songPath;
         }
         App.Database.SaveItemSongs(song);
         await this.Navigation.PopAsync();

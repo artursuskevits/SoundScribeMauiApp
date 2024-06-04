@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SoundScribe.ViewModels"
@@ -53,8 +52,8 @@
         <Button Text="Play" Clicked="PlayButton_Clicked" />
 
         <StackLayout Orientation="Horizontal">
-            <Button Text="Coхранить" Clicked="Button_Clicked" />
-            <Button Text="Отмена" Clicked="Cancel" />
+            <Button Text="Save" Clicked="Button_Clicked" />
+            <Button Text="Cancel" Clicked="Cancel" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

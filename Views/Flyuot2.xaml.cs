@@ -17,15 +17,12 @@ namespace SoundScribe.Views
         {
             InitializeComponent();
 
-            if (Database == null)
-            {
-            }
-
             Songs = new ObservableCollection<Songs>(Database.GetSortedSongs());
             Song = new ObservableCollection<Songs>(Database.GetBestSong());
             Last = new ObservableCollection<Songs>(Database.GetLastSong());
 
             BindingContext = this;
+
         }
 
         private void OnPage1Clicked(object sender, EventArgs e)
@@ -82,14 +79,16 @@ namespace SoundScribe.Views
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            
+            Console.WriteLine("OnItemSelected triggered"); // Debug statement
+            if (e.SelectedItem != null)
+            {
                 SongWithComputedValue selectedSong = (SongWithComputedValue)e.SelectedItem;
                 RatePage NewTrackPage = new RatePage
                 {
                     BindingContext = selectedSong
                 };
                 await Navigation.PushAsync(NewTrackPage);
-            
+            }
         }
     }
 }
