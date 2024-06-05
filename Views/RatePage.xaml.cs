@@ -7,7 +7,7 @@ using Microsoft.Maui.Dispatching;
 using System.Xml.Linq;
 
 namespace SoundScribe.Views
-{
+{ Label RhymesValueLabel, StructureValueLabel, StyleRealizationValueLabel, IndividualityValueLabe, AtmosphereValueLabel, TrendinessValueLabel;
     public partial class RatePage : ContentPage
     {
         public RatePage()
@@ -40,30 +40,19 @@ namespace SoundScribe.Views
 
         private void Cancel(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            this.Navigation.PushAsync(new Flyuot2());
         }
 
         private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            if (sender is Slider slider)
+            if (true)
             {
-                var viewModel = BindingContext as RatePageViewModel;
-                if (viewModel != null)
-                {
-                    if (slider == RhymesSlider)
-                        viewModel.Rhymes = (int)e.NewValue;
-                    else if (slider == StructureSlider)
-                        viewModel.Structure = (int)e.NewValue;
-                    else if (slider == StyleRealizationSlider)
-                        viewModel.Style_realization = (int)e.NewValue;
-                    else if (slider == IndividualitySlider)
-                        viewModel.Individuality = (int)e.NewValue;
-                    else if (slider == AtmosphereSlider)
-                        viewModel.Atmosphere = (int)e.NewValue;
-                    else if (slider == TrendinessSlider)
-                        viewModel.Trendiness = (int)e.NewValue;
-                }
+
             }
+
+
         }
     }
 }
+
+
