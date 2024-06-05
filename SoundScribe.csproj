@@ -77,6 +77,9 @@
 	  <MauiXaml Update="Leaderboard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="NewMain.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Tracklist.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
