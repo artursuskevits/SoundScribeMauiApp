@@ -4,7 +4,7 @@
              x:Class="SoundScribe.Views.Leaderboard"
              Title="Leaderboard">
     <StackLayout>
-        <ListView ItemsSource="{Binding Songs}">
+        <ListView ItemsSource="{Binding Songs2}" ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

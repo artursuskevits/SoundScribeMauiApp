@@ -34,7 +34,7 @@
                         </StackLayout>
 
                         <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="#500000">
-                            <ListView x:Name="SongList" ItemsSource="{Binding Songs}" ItemSelected="OnItemSelected">
+                            <ListView x:Name="SongList" ItemsSource="{Binding Songs2}" ItemSelected="OnItemSelected">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>

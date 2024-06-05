@@ -8,7 +8,7 @@ namespace SoundScribe.Views
 {
     public partial class Flyuot2 : FlyoutPage
     {
-        public ObservableCollection<Songs> Songs { get; set; }
+        public ObservableCollection<Songs> Songs2 { get; set; }
         public ObservableCollection<Songs> Song { get; set; }
         public ObservableCollection<Songs> Last { get; set; }
         private SoundScribeReprisitory Database => App.Database;
@@ -17,7 +17,7 @@ namespace SoundScribe.Views
         {
             InitializeComponent();
 
-            Songs = new ObservableCollection<Songs>(Database.GetSortedSongs());
+            Songs2 = new ObservableCollection<Songs>(Database.GetSortedSongs());
             Song = new ObservableCollection<Songs>(Database.GetBestSong());
             Last = new ObservableCollection<Songs>(Database.GetLastSong());
 
@@ -65,10 +65,10 @@ namespace SoundScribe.Views
                                    song.Artist != null && song.Artist.StartsWith(searchText, StringComparison.OrdinalIgnoreCase))
                     .ToList();
 
-                Songs.Clear();
+                Songs2.Clear();
                 foreach (var song in filteredSongs)
                 {
-                    Songs.Add(song);
+                    Songs2.Add(song);
                 }
             }
             catch (Exception ex)
@@ -79,10 +79,9 @@ namespace SoundScribe.Views
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Console.WriteLine("OnItemSelected triggered"); // Debug statement
             if (e.SelectedItem != null)
             {
-                SongWithComputedValue selectedSong = (SongWithComputedValue)e.SelectedItem;
+                Songs selectedSong = (Songs)e.SelectedItem;
                 RatePage NewTrackPage = new RatePage
                 {
                     BindingContext = selectedSong

@@ -45,7 +45,7 @@ namespace SoundScribe.ViewModels
             }
         }
 
-        public double StyleRealization
+        public double Style_realization
         {
             get => _styleRealization;
             set

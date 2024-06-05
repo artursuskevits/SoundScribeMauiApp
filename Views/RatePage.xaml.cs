@@ -4,6 +4,7 @@ using MediaManager.Library;
 using SoundScribe.Models;
 using SoundScribe.ViewModels;
 using Microsoft.Maui.Dispatching;
+using System.Xml.Linq;
 
 namespace SoundScribe.Views
 {
@@ -13,37 +14,56 @@ namespace SoundScribe.Views
         {
             InitializeComponent();
             BindingContext = new RatePageViewModel();
-            string soundCloudTrackUrl = "https://soundcloud.com/artur-met/ya-inogda-tebya-byu?si=a3781a083b65486bbeda4fb351d1e5c9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing";
-
-            SoundCloudWebView.Source = soundCloudTrackUrl;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var song = (Songs)BindingContext;
-            if (!String.IsNullOrEmpty(song.Artist))
+            if (!string.IsNullOrEmpty(song.Artist))
             {
                 App.Database.SaveItemSongs(song);
             }
-            await this.Navigation.PopAsync();
+            await Navigation.PopAsync();
         }
 
         private async void PlayButton_Clicked(object sender, EventArgs e)
         {
-            var song = (Songs)BindingContext;
-            if (!String.IsNullOrEmpty(song.Mp3))
+            //var song = (Songs)BindingContext;
+            //if (!string.IsNullOrEmpty(song.Mp3))
+            //{
+            Task.Run(async () =>
             {
-                await Dispatcher.DispatchAsync(async () =>
-                {
-                    await CrossMediaManager.Current.Play(song.Mp3);
-
-                });
-            }
+                await CrossMediaManager.Current.Play("https://audio.jukehost.co.uk/MzKUcBxYhbxdRC1Ob2NPABrzsvZ0y40Z");
+            });
+            //}
         }
 
         private void Cancel(object sender, EventArgs e)
         {
-            this.Navigation.PopAsync();
+            Navigation.PopAsync();
+        }
+
+        private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (sender is Slider slider)
+            {
+                var viewModel = BindingContext as RatePageViewModel;
+                if (viewModel != null)
+                {
+                    if (slider == RhymesSlider)
+                        viewModel.Rhymes = (int)e.NewValue;
+                    else if (slider == StructureSlider)
+                        viewModel.Structure = (int)e.NewValue;
+                    else if (slider == StyleRealizationSlider)
+                        viewModel.Style_realization = (int)e.NewValue;
+                    else if (slider == IndividualitySlider)
+                        viewModel.Individuality = (int)e.NewValue;
+                    else if (slider == AtmosphereSlider)
+                        viewModel.Atmosphere = (int)e.NewValue;
+                    else if (slider == TrendinessSlider)
+                        viewModel.Trendiness = (int)e.NewValue;
+                }
+            }
         }
     }
 }

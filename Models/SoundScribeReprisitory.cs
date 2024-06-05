@@ -66,7 +66,7 @@ namespace SoundScribe.Models
                 return database.Insert(item);
             }
         }
-        public List<SongWithComputedValue> GetSortedSongs()
+        public List<Songs> GetSortedSongs()
         {
             var query = @"
         SELECT *,
@@ -78,7 +78,7 @@ namespace SoundScribe.Models
 
             var result = database.Query<Songs>(query);
 
-            return result.Select(song => new SongWithComputedValue
+            return result.Select(song => new Songs
             {
                 Id = song.Id,
                 Artist = song.Artist,
@@ -121,14 +121,14 @@ namespace SoundScribe.Models
                 C = ((song.Trendiness * 10.0 / 100.0) + ((song.Atmosphere * 10.0 / 100.0) + (song.Rhymes + song.Structure + song.Style_realization + song.Individuality)))
             }).ToList();
         }
-        public List<SongWithComputedValue> GetLastSong()
+        public List<Songs> GetLastSong()
         {
             var query = @"SELECT * FROM Songs
 WHERE _id = (SELECT MAX(_id) FROM Songs)";
 
             var result = database.Query<Songs>(query);
 
-            return result.Select(song => new SongWithComputedValue
+            return result.Select(song => new Songs
             {
                 Id = song.Id,
                 Artist = song.Artist,

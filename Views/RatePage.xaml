@@ -8,48 +8,48 @@
     </ContentPage.BindingContext>
     <StackLayout HorizontalOptions="CenterAndExpand">
         <Image Source="{Binding Image}" WidthRequest="200" HeightRequest="200"/>
-        <Label Text="{Binding Artist}" />
-        <Label Text="{Binding Song_Name}" />
+        <Label x:Name="ArtistLabel" Text="{Binding Artist}" />
+        <Label x:Name="SongNameLabel" Text="{Binding Song_Name}" />
         <WebView x:Name="SoundCloudWebView"
                  HorizontalOptions="FillAndExpand"
-                 VerticalOptions="FillAndExpand" />
-        <Label Text="Rhymes" />
+                 VerticalOptions="FillAndExpand" 
+                 Source="{Binding Link}"/>
+        <Label x:Name="RhymesLabel" Text="Rhymes" />
         <HorizontalStackLayout>
-            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Rhymes, Mode=TwoWay}" />
-            <Label Text="{Binding Rhymes}" />
+            <Slider x:Name="RhymesSlider" ValueChanged="Slider_ValueChanged" VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Rhymes, Mode=TwoWay}" />
+            <Label x:Name="RhymesValueLabel" Text="{Binding Rhymes}" />
         </HorizontalStackLayout>
 
-        <Label Text="Structure" />
+        <Label x:Name="StructureLabel" Text="Structure" />
         <HorizontalStackLayout>
-            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Structure, Mode=TwoWay}" />
-            <Label Text="{Binding Structure}" />
+            <Slider x:Name="StructureSlider" ValueChanged="Slider_ValueChanged" VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Structure, Mode=TwoWay}" />
+            <Label x:Name="StructureValueLabel" Text="{Binding Structure}" />
         </HorizontalStackLayout>
 
-        <Label Text="Style realization" />
+        <Label x:Name="StyleRealizationLabel" Text="Style realization" />
         <HorizontalStackLayout>
-            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Style_realization, Mode=TwoWay}" />
-            <Label Text="{Binding Style_realization}" />
+            <Slider x:Name="StyleRealizationSlider" ValueChanged="Slider_ValueChanged" VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Style_realization, Mode=TwoWay}" />
+            <Label x:Name="StyleRealizationValueLabel" Text="{Binding Style_realization}" />
         </HorizontalStackLayout>
 
-        <Label Text="Individuality" />
+        <Label x:Name="IndividualityLabel" Text="Individuality" />
         <HorizontalStackLayout>
-            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Individuality, Mode=TwoWay}" />
-            <Label Text="{Binding Individuality}" />
+            <Slider x:Name="IndividualitySlider" ValueChanged="Slider_ValueChanged" VerticalOptions="CenterAndExpand" Minimum="0" Maximum="10" HorizontalOptions="FillAndExpand" Value="{Binding Individuality, Mode=TwoWay}" />
+            <Label x:Name="IndividualityValueLabel" Text="{Binding Individuality}" />
         </HorizontalStackLayout>
 
-        <Label Text="Atmosphere" />
+        <Label x:Name="AtmosphereLabel" Text="Atmosphere" />
         <HorizontalStackLayout>
-            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="5" HorizontalOptions="FillAndExpand" Value="{Binding Atmosphere, Mode=TwoWay}" />
-            <Label Text="{Binding Atmosphere}" />
+            <Slider x:Name="AtmosphereSlider" ValueChanged="Slider_ValueChanged" VerticalOptions="CenterAndExpand" Minimum="0" Maximum="5" HorizontalOptions="FillAndExpand" Value="{Binding Atmosphere, Mode=TwoWay}" />
+            <Label x:Name="AtmosphereValueLabel" Text="{Binding Atmosphere}" />
         </HorizontalStackLayout>
 
-        <Label Text="Trendiness" />
+        <Label x:Name="TrendinessLabel" Text="Trendiness" />
         <HorizontalStackLayout>
-            <Slider VerticalOptions="CenterAndExpand" Minimum="0" Maximum="5" HorizontalOptions="FillAndExpand" Value="{Binding Trendiness, Mode=TwoWay}" />
-            <Label Text="{Binding Trendiness}" />
+            <Slider x:Name="TrendinessSlider" ValueChanged="Slider_ValueChanged" VerticalOptions="CenterAndExpand" Minimum="0" Maximum="5" HorizontalOptions="FillAndExpand" Value="{Binding Trendiness, Mode=TwoWay}" />
+            <Label x:Name="TrendinessValueLabel" Text="{Binding Trendiness}" />
         </HorizontalStackLayout>
 
-        <Button Text="Play" Clicked="PlayButton_Clicked" />
 
         <StackLayout Orientation="Horizontal">
             <Button Text="Save" Clicked="Button_Clicked" />

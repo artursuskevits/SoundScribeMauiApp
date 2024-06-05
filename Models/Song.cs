@@ -28,6 +28,6 @@ namespace SoundScribe.Models
         public int Individuality { get; set; }
         public int Atmosphere { get; set; }
         public int Trendiness { get; set; }
-       
+        public double C { get; set; }
     }
 }
