@@ -69,14 +69,20 @@ namespace SoundScribe.Models
         public List<Songs> GetSortedSongs()
         {
             var query = @"
-        SELECT *,
-               (Rhymes + Structure + Style_realization + Individuality) AS a,
-               ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality)) AS b,
-               ((Trendiness * 10.0 / 100.0) + ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality))) AS c
-        FROM Songs
-        ORDER BY c DESC";
+    SELECT *,
+           (Rhymes + Structure + Style_realization + Individuality) AS a,
+           ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality)) AS b,
+           ((Trendiness * 10.0 / 100.0) + ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality))) AS c
+    FROM Songs
+    ORDER BY c DESC";
 
             var result = database.Query<Songs>(query);
+
+            // Debug: Print the result to check if sorting is correct
+            foreach (var song in result)
+            {
+                System.Diagnostics.Debug.WriteLine($"Song: {song.Song_Name}, Score (c): {song.C}");
+            }
 
             return result.Select(song => new Songs
             {
@@ -93,7 +99,9 @@ namespace SoundScribe.Models
                 C = ((song.Trendiness * 10.0 / 100.0) + ((song.Atmosphere * 10.0 / 100.0) + (song.Rhymes + song.Structure + song.Style_realization + song.Individuality)))
             }).ToList();
         }
-        public List<SongWithComputedValue> GetBestSong()
+
+
+        public List<Songs> GetBestSong()
         {
             var query = @"
         SELECT *,
@@ -106,7 +114,7 @@ namespace SoundScribe.Models
 
             var result = database.Query<Songs>(query);
 
-            return result.Select(song => new SongWithComputedValue
+            return result.Select(song => new Songs
             {
                 Id = song.Id,
                 Artist = song.Artist,

@@ -5,23 +5,30 @@ namespace SoundScribe.Views;
 public partial class Leaderboard : ContentPage
 {
     public ObservableCollection<Songs> Songs2 { get; set; }
+
     public Leaderboard()
-	{
+    {
         InitializeComponent();
-        Songs2 = new ObservableCollection<Songs>(App.Database.GetSortedSongs());
+        LoadSortedSongs();
         BindingContext = this;
+    }
+
+    private void LoadSortedSongs()
+    {
+        var sortedSongs = App.Database.GetSortedSongs();
+        Songs2 = new ObservableCollection<Songs>(sortedSongs);
     }
     private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         if (e.SelectedItem != null)
         {
             Songs selectedSong = (Songs)e.SelectedItem;
-            RatePage NewTrackPage = new RatePage
+            RatePage newTrackPage = new RatePage
             {
                 BindingContext = selectedSong
             };
-            await Navigation.PushAsync(NewTrackPage);
+            await Navigation.PushAsync(newTrackPage);
         }
     }
-
 }
+
