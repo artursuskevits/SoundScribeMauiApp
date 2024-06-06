@@ -17,7 +17,7 @@
     <FlyoutPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <ContentPage Title="Home">
+                <ContentPage Title="Home" BackgroundImageSource="church_1.png">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -29,11 +29,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="#A0A0A0" Orientation="Horizontal">
+                        <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                             <Entry x:Name="song_search" TextChanged="OnSearchTextChanged" />
                         </StackLayout>
 
-                        <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="#500000">
+                        <StackLayout Grid.Row="1" Grid.Column="0">
                             <ListView x:Name="SongList" ItemsSource="{Binding Songs2}" ItemSelected="OnItemSelected">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
@@ -53,7 +53,7 @@
                             </ListView>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="#500000">
+                        <StackLayout Grid.Row="2" Grid.Column="0">
                             <ListView ItemsSource="{Binding Last}" ItemSelected="OnItemSelected">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
