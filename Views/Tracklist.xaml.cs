@@ -1,3 +1,4 @@
+using SoundScribe.ViewModels;
 using SoundScribe.Models;
 
 namespace SoundScribe.Views;
@@ -7,6 +8,7 @@ public partial class Tracklist : ContentPage
     public Tracklist()
     {
         InitializeComponent();
+        BindingContext = new TracklistViewModel();
     }
 
     protected override void OnAppearing()
