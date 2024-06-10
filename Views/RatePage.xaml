@@ -2,14 +2,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SoundScribe.ViewModels"
              x:Class="SoundScribe.Views.RatePage"
-             Title="RatePage">
+             Title="RatePage"
+             BackgroundImageSource="church_1.png">
     <ContentPage.BindingContext>
         <local:RatePageViewModel />
     </ContentPage.BindingContext>
     <StackLayout HorizontalOptions="CenterAndExpand">
-        <Image Source="{Binding Image}" WidthRequest="200" HeightRequest="200"/>
-        <Label x:Name="ArtistLabel" Text="{Binding Artist}" />
-        <Label x:Name="SongNameLabel" Text="{Binding Song_Name}" />
+        <StackLayout>
+            <AbsoluteLayout>
+                <Frame
+                    HeightRequest="350"
+                    WidthRequest="250"
+                    CornerRadius="60"
+                    BackgroundColor="#2A2A2A"
+                    BorderColor="#000000"
+                    Margin="50, 10, 50, 10"/>
+            </AbsoluteLayout>
+            <Frame
+                HeightRequest="200"
+                WidthRequest="200"
+                CornerRadius="60"
+                BorderColor="#000000"
+                Margin="20, 10, 20, 10">
+                
+                <Image Source="{Binding Image}" WidthRequest="300" HeightRequest="300"/>
+            </Frame>
+            <Label x:Name="ArtistLabel" Text="{Binding Artist}" />
+            <Label x:Name="SongNameLabel" Text="{Binding Song_Name}" />
+        </StackLayout>
         <WebView x:Name="SoundCloudWebView"
                  HorizontalOptions="FillAndExpand"
                  VerticalOptions="FillAndExpand" 
