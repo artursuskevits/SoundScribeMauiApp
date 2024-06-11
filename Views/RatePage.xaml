@@ -40,7 +40,7 @@
                     <Label x:Name="ArtistLabel" Text="{Binding Artist}" TextColor="#FFFFFF" FontSize="Small" Opacity="0.56" HorizontalOptions="Center"/>
                 </Frame>
                 <Frame
-                    HeightRequest="60"
+                    HeightRequest="70"
                     WidthRequest="240"
                     Margin="0, -30, 0, 0"
                     HasShadow="False"
@@ -63,10 +63,10 @@
             </Frame>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
-            <VerticalStackLayout HorizontalOptions="Center" Margin="80, 0, 10, 0">
+            <VerticalStackLayout HorizontalOptions="Center" Margin="40, 0, 10, 0">
                 <Label Text="Rhymes" TextColor="#FFFFFF"/>
                 <HorizontalStackLayout>
-                    <Slider x:Name="RhymesSlider" ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="10" Value="{Binding Rhymes, Mode=TwoWay}" />
+                    <Slider x:Name="RhymesSlider" ValueChanged="Slider_ValueChanged" WidthRequest="80" Minimum="0" Maximum="10" Value="{Binding Rhymes, Mode=TwoWay}" />
                     <Label x:Name ="RhymesLabel" Text="" TextColor="#FFFFFF"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -74,7 +74,7 @@
             <VerticalStackLayout HorizontalOptions="Center" Margin="0, 0, 10, 0">
                 <Label Text="Structure" TextColor="#FFFFFF" />
                 <HorizontalStackLayout>
-                    <Slider x:Name="StructureSlider" ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="10" Value="{Binding Structure, Mode=TwoWay}" />
+                    <Slider x:Name="StructureSlider" ValueChanged="Slider_ValueChanged" WidthRequest="80" Minimum="0" Maximum="10" Value="{Binding Structure, Mode=TwoWay}" />
                     <Label x:Name="StructureLabel" Text="" TextColor="#FFFFFF"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -82,7 +82,7 @@
             <VerticalStackLayout HorizontalOptions="Center">
                 <Label Text="Style realization" TextColor="#FFFFFF"/>
                 <HorizontalStackLayout>
-                    <Slider x:Name="StyleRealizationSlider" ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="10" Value="{Binding Style_realization, Mode=TwoWay}" />
+                    <Slider x:Name="StyleRealizationSlider" ValueChanged="Slider_ValueChanged" WidthRequest="80" Minimum="0" Maximum="10" Value="{Binding Style_realization, Mode=TwoWay}" />
                     <Label x:Name="StyleRealizationLabel" Text="" TextColor="#FFFFFF"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -91,7 +91,7 @@
             <VerticalStackLayout HorizontalOptions="Center" Margin="80, 0, 10, 0">
                 <Label Text="Individuality" TextColor="#FFFFFF"/>
                 <HorizontalStackLayout>
-                    <Slider x:Name="IndividualitySlider" ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="10" Value="{Binding Individuality, Mode=TwoWay}" />
+                    <Slider x:Name="IndividualitySlider" ValueChanged="Slider_ValueChanged" WidthRequest="80" Minimum="0" Maximum="10" Value="{Binding Individuality, Mode=TwoWay}" />
                     <Label  x:Name="IndividualityLabel" Text="" TextColor="#FFFFFF"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -99,7 +99,7 @@
             <VerticalStackLayout HorizontalOptions="Center" Margin="0, 0, 10, 0">
                 <Label Text="Atmosphere" TextColor="#FFFFFF"/>
                 <HorizontalStackLayout>
-                    <Slider x:Name="AtmosphereSlider" ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="5" Value="{Binding Atmosphere, Mode=TwoWay}" />
+                    <Slider x:Name="AtmosphereSlider" ValueChanged="Slider_ValueChanged" WidthRequest="80" Minimum="0" Maximum="5" Value="{Binding Atmosphere, Mode=TwoWay}" />
                     <Label x:Name="AtmosphereLabel" Text="" TextColor="#FFFFFF"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -107,7 +107,7 @@
             <VerticalStackLayout HorizontalOptions="Center">
                 <Label Text="Trendiness" TextColor="#FFFFFF"/>
                 <HorizontalStackLayout>
-                    <Slider x:Name="TrendinessSlider"  ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="5" Value="{Binding Trendiness, Mode=TwoWay}"/>
+                    <Slider x:Name="TrendinessSlider"  ValueChanged="Slider_ValueChanged" WidthRequest="80" Minimum="0" Maximum="5" Value="{Binding Trendiness, Mode=TwoWay}"/>
                     <Label  x:Name="TrendinessLabel" Text="" TextColor="#FFFFFF"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>

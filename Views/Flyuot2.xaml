@@ -4,12 +4,12 @@
              x:Class="SoundScribe.Views.Flyuot2"
              Title="Flyuot2">
     <FlyoutPage.Flyout>
-        <ContentPage Title="Menu">
+        <ContentPage Title="Menu" BackgroundColor="#505050">
             <StackLayout>
-                <Button Text="Main Page" Clicked="Button_Clicked" />
-                <Button Text="Leaderboard" Clicked="OnPage1Clicked" />
-                <Button Text="Tracklist" Clicked="OnPage2Clicked" />
-                <Button Text="Add Track" Clicked="OnPage3Clicked" />
+                <Button Text="Main Page" Clicked="Button_Clicked" BackgroundColor="#2B2B2B"/>
+                <Button Text="Leaderboard" Clicked="OnPage1Clicked" BackgroundColor="#2B2B2B"/>
+                <Button Text="Tracklist" Clicked="OnPage2Clicked" BackgroundColor="#2B2B2B"/>
+                <Button Text="Add Track" Clicked="OnPage3Clicked" BackgroundColor="#2B2B2B"/>
             </StackLayout>
         </ContentPage>
     </FlyoutPage.Flyout>
