@@ -53,7 +53,7 @@
         <StackLayout>
             <Frame
                 BackgroundColor="Transparent"
-                HeightRequest="300"
+                HeightRequest="260"
                 Margin="0, 20, 0, 0"
                 >
                 <WebView x:Name="SoundCloudWebView"
@@ -87,7 +87,7 @@
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 15">
             <VerticalStackLayout HorizontalOptions="Center" Margin="40, 0, 10, 0">
                 <Label Text="Individuality" TextColor="#FFFFFF"/>
                 <HorizontalStackLayout>
@@ -113,8 +113,8 @@
             </VerticalStackLayout>
         </StackLayout>
 
-        <StackLayout Orientation="Horizontal">
-            <Button Text="Save" Clicked="Button_Clicked" BackgroundColor="#505050"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Save" Clicked="Button_Clicked" BackgroundColor="#505050" Margin="0, 0, 10, 0"/>
             <Button Text="Cancel" Clicked="Cancel" BackgroundColor="#505050"/>
         </StackLayout>
     </StackLayout>
