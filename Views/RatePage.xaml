@@ -88,7 +88,7 @@
             </VerticalStackLayout>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
-            <VerticalStackLayout HorizontalOptions="Center" Margin="80, 0, 10, 0">
+            <VerticalStackLayout HorizontalOptions="Center" Margin="40, 0, 10, 0">
                 <Label Text="Individuality" TextColor="#FFFFFF"/>
                 <HorizontalStackLayout>
                     <Slider x:Name="IndividualitySlider" ValueChanged="Slider_ValueChanged" WidthRequest="80" Minimum="0" Maximum="10" Value="{Binding Individuality, Mode=TwoWay}" />
