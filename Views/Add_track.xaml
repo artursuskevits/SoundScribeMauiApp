@@ -5,12 +5,12 @@
              Title="Add_track"
              BackgroundImageSource="church_1.png">
     <StackLayout>
-        <Label Text="Artist" />
-        <Entry Text="{Binding Artist}" />
-        <Label Text="Song Name" />
-        <Entry Text="{Binding  Song_Name}" />
-        <Label Text="Link to the song" />
-        <Entry Text="{Binding  Link}" />
+        <Label Text="Artist" TextColor="#FFFFFF"/>
+        <Entry Text="{Binding Artist}" TextColor="#505050"/>
+        <Label Text="Song Name" TextColor="#FFFFFF"/>
+        <Entry Text="{Binding  Song_Name}" TextColor="#505050"/>
+        <Label Text="Link to the song" TextColor="#FFFFFF"/>
+        <Entry Text="{Binding  Link}" TextColor="#505050"/>
         <!-- 
         <Label Text="Rhymes" />
         <Entry Text="{Binding Rhymes}" />
@@ -26,10 +26,10 @@
         <Entry Text="{Binding Trendiness}" />
         Cool comment -->
 
-        <StackLayout Orientation="Horizontal">
-            <Button Text="Coхранить" Clicked="SaveFriend" />
-            <Button Text="Удалить" Clicked="DeleteFriend" />
-            <Button Text="Отмена" Clicked="Cancel" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Coхранить" Clicked="SaveFriend" BackgroundColor="#505050"/>
+            <Button Text="Удалить" Clicked="DeleteFriend" BackgroundColor="#505050"/>
+            <Button Text="Отмена" Clicked="Cancel" BackgroundColor="#505050"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
