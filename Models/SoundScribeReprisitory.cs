@@ -68,21 +68,10 @@ namespace SoundScribe.Models
         }
         public List<Songs> GetSortedSongs()
         {
-            var query = @"
-    SELECT *,
-           (Rhymes + Structure + Style_realization + Individuality) AS a,
-           ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality)) AS b,
-           ((Trendiness * 10.0 / 100.0) + ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality))) AS c
-    FROM Songs
-    ORDER BY c DESC";
+            var query = @"SELECT * FROM Songs ORDER BY C DESC";
 
             var result = database.Query<Songs>(query);
 
-            // Debug: Print the result to check if sorting is correct
-            foreach (var song in result)
-            {
-                System.Diagnostics.Debug.WriteLine($"Song: {song.Song_Name}, Score (c): {song.C}");
-            }
 
             return result.Select(song => new Songs
             {
@@ -96,21 +85,14 @@ namespace SoundScribe.Models
                 Individuality = song.Individuality,
                 Atmosphere = song.Atmosphere,
                 Trendiness = song.Trendiness,
-                C = ((song.Trendiness * 10.0 / 100.0) + ((song.Atmosphere * 10.0 / 100.0) + (song.Rhymes + song.Structure + song.Style_realization + song.Individuality)))
-            }).ToList();
-        }
+                C = song.C}).ToList();
+    }
 
 
         public List<Songs> GetBestSong()
-        {
-            var query = @"
-        SELECT *,
-               (Rhymes + Structure + Style_realization + Individuality) AS a,
-               ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality)) AS b,
-               ((Trendiness * 10.0 / 100.0) + ((Atmosphere * 10.0 / 100.0) + (Rhymes + Structure + Style_realization + Individuality))) AS c
-        FROM Songs
-        ORDER BY c DESC
-        Limit 1";
+        { 
+            var query = @"SELECT * FROM Songs ORDER BY C DESC
+        Limit 1;";
 
             var result = database.Query<Songs>(query);
 
@@ -126,7 +108,7 @@ namespace SoundScribe.Models
                 Individuality = song.Individuality,
                 Atmosphere = song.Atmosphere,
                 Trendiness = song.Trendiness,
-                C = ((song.Trendiness * 10.0 / 100.0) + ((song.Atmosphere * 10.0 / 100.0) + (song.Rhymes + song.Structure + song.Style_realization + song.Individuality)))
+                C = song.C
             }).ToList();
         }
         public List<Songs> GetLastSong()

@@ -17,8 +17,15 @@ namespace SoundScribe.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var song = (Songs)BindingContext;
+           
             if (!string.IsNullOrEmpty(song.Artist))
             {
+                App.Database.SaveItemSongs(song);
+                double a = song.Rhymes + song.Structure + song.Style_realization + song.Individuality;
+                double b = song.Atmosphere * 10 / 100;
+                double c = song.Trendiness * 10 / 100;
+                song.C = a + b + c;
+
                 App.Database.SaveItemSongs(song);
             }
             await Navigation.PopAsync();
