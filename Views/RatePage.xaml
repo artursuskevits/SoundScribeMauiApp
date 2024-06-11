@@ -8,15 +8,18 @@
         <local:RatePageViewModel />
     </ContentPage.BindingContext>
     <StackLayout HorizontalOptions="CenterAndExpand">
-        <StackLayout>
+        <StackLayout Orientation="Vertical">
             <AbsoluteLayout>
                 <Frame
-                    HeightRequest="350"
-                    WidthRequest="250"
-                    CornerRadius="60"
-                    BackgroundColor="#2A2A2A"
-                    BorderColor="#000000"
-                    Margin="50, 10, 50, 10"/>
+                AbsoluteLayout.LayoutBounds="0.5,1, 1, 1"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                HeightRequest="350"
+                WidthRequest="250"
+                HasShadow="False"
+                CornerRadius="60"
+                BorderColor="#000000"
+                BackgroundColor="#2A2A2A"
+                Margin="20, 10, 30, 10"/>
             </AbsoluteLayout>
             <Frame
                 HeightRequest="200"
@@ -24,7 +27,6 @@
                 CornerRadius="60"
                 BorderColor="#000000"
                 Margin="20, 10, 20, 10">
-                
                 <Image Source="{Binding Image}" WidthRequest="300" HeightRequest="300"/>
             </Frame>
             <Label x:Name="ArtistLabel" Text="{Binding Artist}" />
