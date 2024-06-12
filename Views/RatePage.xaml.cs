@@ -87,6 +87,11 @@ namespace SoundScribe.Views
 
         }
 
+        private void Button_Clicked_1(object sender, EventArgs e) { 
+         var song = (Songs)BindingContext;
+        App.Database.DeleteItemSongs(song.Id);
+this.Navigation.PopAsync();
+        }
     }
 }
 

@@ -118,7 +118,8 @@
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button Text="Save" Clicked="Button_Clicked" BackgroundColor="#870202" BorderColor="Black" BorderWidth="1" Margin="0, 0, 10, 0"/>
-            <Button Text="Cancel" Clicked="Cancel" BackgroundColor="#870202" BorderColor="Black" BorderWidth="1"/>
+            <Button Text="Cancel" Clicked="Cancel" BackgroundColor="#870202" BorderColor="Black" BorderWidth="1" Margin="0, 0, 10, 0"added/>
+            <Button Text="Delete" Clicked="Button_Clicked_1" BackgroundColor="#870202" BorderColor="Black" BorderWidth="1"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
