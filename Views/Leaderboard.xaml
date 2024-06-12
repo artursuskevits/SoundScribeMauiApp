@@ -5,61 +5,40 @@
              BackgroundImageSource="church_1.png">
     <StackLayout>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="LeaderBoard " FontSize="46" TextColor="#FFFFFF"/>
-        </StackLayout>
-        <ListView x:Name="SongsListView" ItemsSource="{Binding Songs2}" ItemSelected="OnItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <AbsoluteLayout>
-                            <Frame
-                                AbsoluteLayout.LayoutBounds="0.2, 0.1, 0.98, 1"
-                                AbsoluteLayout.LayoutFlags="All"
-                                BackgroundColor="#2A2A2A"
-                                CornerRadius="60"
-                                HasShadow="False" 
-                                Padding="0"
-                                Margin="5"
-                                HeightRequest="120"/>
-                            <StackLayout Orientation="Horizontal" Padding="5">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame 
-                                        CornerRadius="60" 
-                                        Margin="10, -50, 5, 0" 
-                                        WidthRequest="40" 
-                                        HeightRequest="40">
-                                        <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50"/>
-                                    </Frame>
+                <Label Text="LeaderBoard " FontSize="46" TextColor="#FFFFFF"/>
+                </StackLayout>
+                <ListView x:Name="SongsListView" ItemsSource="{Binding Songs2}" ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <AbsoluteLayout>
                                     <Frame
-                                        HeightRequest="100"
-                                        HasShadow="False"
-                                        Margin="0, -18, 0, 0"
-                                        BackgroundColor="#2A2A2A">
-                                        <Label Text="{Binding Song_Name }" FontSize="Medium" TextColor="#FFFFFF"/>
-                                    </Frame>
-                                    <Frame
-                                        HeightRequest="100"
-                                        WidthRequest="100"
-                                        HasShadow="False"
-                                        Margin="0, -13, 0, 0"
-                                        BackgroundColor="#2A2A2A">
-                                        <Label Text="{Binding Artist}" FontSize="Small" TextColor="#FFFFFF" Opacity="0.56"/>
-                                    </Frame>
-                                    <Label Text=" " />
-                                    <Frame
-                                        HeightRequest="100"
-                                        WidthRequest="80"
-                                        HasShadow="False"
-                                        Margin="-10, -15, 0, 0"
-                                        BackgroundColor="#2A2A2A">
-                                        <Label Text="{Binding C}" FontSize="Medium" TextColor="#FFFFFF"/>
-                                    </Frame>
-                                </StackLayout>
-                            </StackLayout>
-                        </AbsoluteLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                        AbsoluteLayout.LayoutBounds="0.5, 1, 0.8, 1"
+                                        AbsoluteLayout.LayoutFlags="All"
+                                        BackgroundColor="#2A2A2A"
+                                        CornerRadius="60"
+                                        HasShadow="False" 
+                                        Padding="0"
+                                        Margin="10, 0 ,10 ,0"
+                                        BorderColor="Black"
+                                        HeightRequest="45"/>
+                                    <StackLayout Orientation="Horizontal" Padding="5">
+                                        <Frame 
+                                            CornerRadius="60" 
+                                            Margin="50, 0, 5, 0" 
+                                            WidthRequest="35" 
+                                            HeightRequest="35">
+                                            <Image Source="{Binding Image}" WidthRequest="45" HeightRequest="45"/>
+                                        </Frame>
+                                        <Label Text="{Binding Song_Name }" FontSize="Medium" TextColor="#FFFFFF" Margin="10, 5, 10, 0"/>
+                                        <Label Text="{Binding Artist}" FontSize="Small" TextColor="#FFFFFF" Opacity="0.56" Margin="10, 9, 30, 0"/>
+                                        <Label Text="{Binding C}" FontSize="Medium" TextColor="#FFFFFF" Margin="0, 5,0,0"/>
+                                    </StackLayout>
+                                </AbsoluteLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            
     </StackLayout>
 </ContentPage>

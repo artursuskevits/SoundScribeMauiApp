@@ -4,14 +4,27 @@
              x:Class="SoundScribe.Views.Add_track"
              Title="Add_track"
              BackgroundImageSource="church_1.png">
-    <StackLayout>
+    <StackLayout Margin="20, 200, 20, 0">
+        <AbsoluteLayout>
+            <Frame
+            AbsoluteLayout.LayoutBounds="0.51,0.8, 1, 1"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            HeightRequest="280"
+            WidthRequest="380"
+            HasShadow="False"
+            CornerRadius="30"
+            BorderColor="#000000"
+            BackgroundColor="#2A2A2A"
+            Margin="20, 220, 30, 10"
+                Opacity="0.8"/>
+        </AbsoluteLayout>
         <Label Text="Artist" TextColor="#FFFFFF"/>
         <Entry Text="{Binding Artist}" TextColor="#505050"/>
         <Label Text="Song Name" TextColor="#FFFFFF"/>
         <Entry Text="{Binding  Song_Name}" TextColor="#505050"/>
         <Label Text="Link to the song" TextColor="#FFFFFF"/>
         <Entry Text="{Binding  Link}" TextColor="#505050"/>
-        <!-- 
+            <!-- 
         <Label Text="Rhymes" />
         <Entry Text="{Binding Rhymes}" />
         <Label Text="Structure" />
@@ -26,10 +39,9 @@
         <Entry Text="{Binding Trendiness}" />
         Cool comment -->
 
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button Text="Coхранить" Clicked="SaveFriend" BackgroundColor="#505050"/>
-            <Button Text="Удалить" Clicked="DeleteFriend" BackgroundColor="#505050"/>
-            <Button Text="Отмена" Clicked="Cancel" BackgroundColor="#505050"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0, 15, 0 ,0">
+            <Button Text="Coхранить" Clicked="SaveFriend" BackgroundColor="#870202" TextColor="Black" BorderColor="Black" BorderWidth="1" Margin="0, 0, 10, 0"/>
+            <Button Text="Отмена" Clicked="Cancel" BackgroundColor="#870202" BorderColor="Black" BorderWidth="1"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

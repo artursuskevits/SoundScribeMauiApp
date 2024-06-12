@@ -2,12 +2,14 @@ using Microsoft.Maui.Controls;
 using SoundScribe.Models;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Metrics;
 using System.Linq;
 
 namespace SoundScribe.Views
 {
     public partial class Flyuot2 : FlyoutPage
     {
+        int conuter =0;
         public ObservableCollection<Songs> Songs2 { get; set; }
         public ObservableCollection<Songs> Song { get; set; }
         public ObservableCollection<Songs> Last { get; set; }
@@ -45,11 +47,19 @@ namespace SoundScribe.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new Flyuot2());
+            Detail = new NavigationPage(new Flyuot2());
+            IsPresented = false;
         }
 
         private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+
         {
+            conuter += 1;
+            var entry = sender as Entry;
+            if (conuter == 1)
+            {
+                entry.Text = string.Empty;
+            }
             if (Database == null)
             {
                 throw new Exception("Database is not initialized.");
@@ -69,11 +79,13 @@ namespace SoundScribe.Views
                 {
                     Songs2.Add(song);
                 }
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred during search: " + ex.Message);
             }
+            conuter = 0;
         }
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
