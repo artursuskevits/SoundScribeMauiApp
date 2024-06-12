@@ -45,8 +45,7 @@ namespace SoundScribe.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Detail = new NavigationPage(new Flyuot2());
-            IsPresented = false;
+            this.Navigation.PushAsync(new Flyuot2());
         }
 
         private void OnSearchTextChanged(object sender, TextChangedEventArgs e)

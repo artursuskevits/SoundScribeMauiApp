@@ -28,7 +28,7 @@ namespace SoundScribe.Views
 
                 App.Database.SaveItemSongs(song);
             }
-            await Navigation.PopAsync();
+            this.Navigation.PushAsync(new Flyuot2());
         }
 
         private async void PlayButton_Clicked(object sender, EventArgs e)
@@ -50,29 +50,38 @@ namespace SoundScribe.Views
 
         private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            
-                var label = sender as Label;
-                var slider = sender as Slider;
-                if (slider == RhymesSlider)
-                    RhymesLabel.Text = RhymesSlider.Value.ToString();
-                else if (slider == StructureSlider) {
-                StructureLabel.Text = StructureSlider.Value.ToString();
+
+            var label = sender as Label;
+            var slider = sender as Slider;
+            if (slider == RhymesSlider)
+            {
+                int intvaluelabel = (int)Math.Round(RhymesSlider.Value);
+                RhymesLabel.Text = intvaluelabel.ToString();
+            }
+            else if (slider == StructureSlider)
+            {
+                int intvaluelabel = (int)Math.Round(StructureSlider.Value);
+                StructureLabel.Text = intvaluelabel.ToString();
             }
             else if (slider == StyleRealizationSlider)
             {
-                StyleRealizationLabel.Text = StyleRealizationSlider.Value.ToString();
+                int intvaluelabel = (int)Math.Round(StyleRealizationSlider.Value);
+                StyleRealizationLabel.Text = intvaluelabel.ToString();
             }
             else if (slider == IndividualitySlider)
             {
-                IndividualityLabel.Text = IndividualitySlider.Value.ToString();
+                int intvaluelabel = (int)Math.Round(IndividualitySlider.Value);
+                IndividualityLabel.Text = intvaluelabel.ToString();
             }
             else if (slider == AtmosphereSlider)
             {
-                AtmosphereLabel.Text = AtmosphereSlider.Value.ToString();
+                int intvaluelabel = (int)Math.Round(AtmosphereSlider.Value);
+                AtmosphereLabel.Text = intvaluelabel.ToString();
             }
             else if (slider == TrendinessSlider)
             {
-                TrendinessLabel.Text = TrendinessSlider.Value.ToString();
+                int intvaluelabel = (int)Math.Round(TrendinessSlider.Value);
+                TrendinessLabel.Text = intvaluelabel.ToString();
             }
 
 
